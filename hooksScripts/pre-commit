@@ -1,0 +1,23 @@
+#!/bin/sh
+
+#Library includes:
+. .git/hooks/hooks_library.lib
+
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+
+#Aim:Check for any Deleted file in the staging area, if any it stops you from commiting this snapshot.
+
+set_variables 1 $0
+
+if [ "$(git status --short | grep '^D')" ];then
+	echo "WARNING!!! Aborting the commit. Found Deleted files in the Staging area.\n" | tee -a $LOGFILE
+	echo "`git status --short | grep '^D' | awk -F' ' '{print $2}'`\n" | tee -a $LOGFILE
+	exit 1;
+else
+	echo "[OK]: No deleted files, proceed to commit." | tee -a $LOGFILE
+	exit 0;
+fi
+

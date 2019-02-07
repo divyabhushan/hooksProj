@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# An example hook script to check the commit log message.
+# Called by "git commit" with one argument, the name of the file
+# that has the commit message.  The hook should exit with non-zero
+# status after issuing an appropriate message if it wants to stop the
+# commit.  The hook is allowed to edit the commit message file.
+
+#Library includes:
+. .git/hooks/hooks_library.lib
+
+#Aim: Reads the commit log message for ISSUE#. 
+
+COMMIT_MSG_FILE=$1
+
+set_variables 3 $0
+if [ "` grep 'ISSUE#' $COMMIT_MSG_FILE `" ]; then
+	echo "[OK]: Commit message has an ISSUE number\n" | tee -a $LOGFILE
+	exit 0;
+else
+	echo "[NOK]: Missing  an ISSUE number in the message\n" | tee -a $LOGFILE
+	exit 1;
+fi
+
+exit 0;

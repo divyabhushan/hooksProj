@@ -1,4 +1,25 @@
-Project to learn and practise git hooks.
-version: 1.0
-author: divya
-date: today
+#Project to learn and practise git hooks.
+#version: 1.0
+#author: divya
+#date: today
+
+#Clone the repository to your working dir as:
+git clone https://github.com/divyabhushan/hooksProj.git
+
+cd hooksProj
+
+#Install the hooks scripts by executing the script under hooksScripts folder:
+./code/install_hooks.sh
+
+#This creates symbolic links for the new hooks scripts from .git/hooks path in your project.
+hooks_library.lib -> ../../hooksScripts/hooks_library.lib
+pre-commit -> ../../hooksScripts/pre-commit
+prepare-commit-msg -> ../../hooksScripts/prepare-commit-msg
+commit-msg -> ../../hooksScripts/commit-msg
+post-commit -> ../../hooksScripts/post-commit
+
+
+#Now edit few files in your project, Stage the changes and try to commit to see the hooks scripts in effect.
+
+Done !!!
+

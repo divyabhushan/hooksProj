@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#pre-rebase hook is called before rebase and aborts the rebase.
+#Also does not allow rebasing on 'master' branch
+
+upstream_branch=$1
+BranchBeingRebased=$2
+
+if [ $upstream_branch == 'master' ]; then
+	echo "WARNING!!! upstream branch is master.\n"
+	echo "You are not allowed to rebase on master\n"
+	exit 1;
+fi
+
+echo "pre-rebase: rebasing is dangerous, don't do it."
+exit 1;

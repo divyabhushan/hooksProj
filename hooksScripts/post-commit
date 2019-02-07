@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#Library includes:
+. .git/hooks/hooks_library.lib
+
+set_variables 4 $0
+
+#This script is called after the ‘commit-msg’ script.
+echo "New commit made:\n" | tee -a $LOGFILE
+echo "` git log --oneline -n 1 `\n" | tee -a $LOGFILE
+exit 0;

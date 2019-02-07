@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#Aim: Library functions for the hooks scripts
+
+set_variables(){
+
+DIR=`pwd`
+
+#Create a log file and save the scripts result.
+touch "$DIR/commit_hooks_output.log"
+LOGFILE="$DIR/commit_hooks_output.log"
+
+i=$1
+hooksScriptName=$2
+
+echo "\n` date `" >> $LOGFILE
+echo "--------------------------------------------" | tee -a $LOGFILE
+echo "Step $i: Running $hooksScriptName script." | tee -a $LOGFILE
+}

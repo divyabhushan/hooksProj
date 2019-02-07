@@ -1,0 +1,44 @@
+
+Thu Feb  7 12:10:02 CET 2019
+--------------------------------------------
+Step 1: Running .git/hooks/pre-commit script.
+[OK]: No deleted files, proceed to commit.
+
+Thu Feb  7 12:10:02 CET 2019
+--------------------------------------------
+Step 2: Running .git/hooks/prepare-commit-msg script.
+Get hooks scripts while cloning the repo. ISSUE#7079
+ISSUE#7092 
+
+
+
+
+
+
+Enter your commit message here.
+
+README
+code/install_hooks.sh
+code/runTests.sh
+database.log
+hooksScripts/commit-msg
+hooksScripts/hooks_library.lib
+hooksScripts/post-commit
+hooksScripts/pre-commit
+hooksScripts/pre-rebase
+hooksScripts/prepare-commit-msg
+newFile 
+
+Thu Feb  7 12:10:02 CET 2019
+--------------------------------------------
+Step 3: Running .git/hooks/commit-msg script.
+[OK]: Commit message has an ISSUE number
+
+
+Thu Feb  7 12:10:02 CET 2019
+--------------------------------------------
+Step 4: Running .git/hooks/post-commit script.
+New commit made:
+
+1c705d3 Get hooks scripts while cloning the repo. ISSUE#7079 ISSUE#7092
+
